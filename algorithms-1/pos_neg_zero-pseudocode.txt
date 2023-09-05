@@ -1,0 +1,35 @@
+input NUMBERS
+COUNTER = NUMBERS
+POSITIVES = 0
+NEGATIVES = 0
+ZEROES = 0
+while COUNTER > 0
+    input X
+    if X > 0
+	POSITIVES = POSITIVES + 1
+    else if X < 0
+	NEGATIVES = NEGATIVES + 1
+    else
+	ZEROES = ZEROES + 1
+    end if
+    COUNTER = COUNTER - 1
+end while
+output "positives: ", POSITIVES
+output "negatives: ", NEGATIVES
+output "zeroes   : ", ZEROES
+
+
+[ NUMBERS | POSITIVES | NEGATIVES | ZEROES | COUNTER > 0? | X | X > 0? | X < 0? | Output ]
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
+	  |	      |		  |	   |		  |   |	       |	|
