@@ -9,7 +9,7 @@ loop while N >= 0
 end loop
 output MAX
 */
-public class TracingHW {
+public class TracingHW1 {
 	
 	public static void main (String[] args) {
 		int n = IBIO.inputInt("N = ");	// input N
