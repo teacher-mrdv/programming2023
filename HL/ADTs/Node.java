@@ -15,13 +15,14 @@ public class Node
 	int data ; // data contained in our node; it can be any data type
 	Node next; // self-reference (Node refers/links/points to another node)
 
-	// empty constructor (OOP) creates an empty node
+	// empty constructor (OOP) creates an empty node (defaults)
 	public Node() { }
 
 	// custom constructor that creates and initialises a node
 	public Node(int d)
 	{
 		data = d;
+		next = null;
 	}
 	// ^^^^^ this is an example of overloading methods ^^^^^^
 
