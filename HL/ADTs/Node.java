@@ -1,6 +1,10 @@
 /*
  * This is the definition (class) of a node for an ADT
  * Singly-linked node
+ *  _____________
+ * | data | Node |
+ * | (int)| /null|
+ * |______|______|
  * 
  */
 
