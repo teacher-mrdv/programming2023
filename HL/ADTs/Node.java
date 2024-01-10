@@ -5,12 +5,14 @@
  * | data | Node |
  * | (int)| /null|
  * |______|______|
+ *
+ * null = empty, non-existent, void
  * 
  */
 
 public class Node
 {
-	int data;
+	int data ; // data contained in our node; it can be any data type
 	Node next; // self-reference (Node refers/links/points to another node)
 
 	// empty constructor (OOP) creates an empty node
@@ -21,6 +23,7 @@ public class Node
 	{
 		data = d;
 	}
+	// ^^^^^ this is an example of overloading methods ^^^^^^
 
 	// is the (current) node linked to another node or does it point to null?
 	public boolean hasNext()
@@ -32,5 +35,6 @@ public class Node
 	{
 		return this.data + "";
 	}
+	
 }
 
