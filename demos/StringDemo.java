@@ -13,6 +13,8 @@ public class StringDemo {
 		String me = "Marcos";
 		String he = me;
 		String you = new String("Marcos");
+		System.out.println("\nString me = \"Marcos\";\nString he = me;\nString you = new String(\"Marcos\");");
+		
 		System.out.println("\n>>> String equalities\n");
 		System.out.println("name == me: " + (name == me));
 		System.out.println("me == he: " + (me == he));
