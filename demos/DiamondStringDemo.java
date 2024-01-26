@@ -41,7 +41,7 @@ public class DiamondStringDemo
 			System.out.println( spaces(size-i) +
 				stars(i) + stars(i-1) );
 		}
-		// borrom of the diamond
+		// bottom of the diamond
 		for(int i = size; i > 0; i--)
 		{
 			System.out.println( spaces(size-i) +
