@@ -2,8 +2,9 @@
  * This is the definition (class) of a node for an ADT
  * Singly-linked node
  *  _____________
- * | data | Node |
- * | (int)| /null|
+ * | data | next |
+ * | (int)|(Node)|
+ * |	  | /null|
  * |______|______|
  *
  * null = empty, non-existent, void

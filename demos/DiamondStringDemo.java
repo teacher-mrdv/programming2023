@@ -33,6 +33,16 @@ public class DiamondStringDemo
 		return output;
 	}
 
+	static String repeat(int times, String s)
+	{
+		String output = ""; // empty string
+		for(int i = 0; i < times; i++)
+		{
+			output = output + s;
+		}
+		return output;
+	}
+
 	static void diamond(int size)
 	{
 		// top of the diamond
@@ -49,11 +59,31 @@ public class DiamondStringDemo
 		}
 	}
 
+	static void diamond2(int size)
+	{
+		// top of the diamond
+		for(int i = 1; i < size; i++)
+		{
+			System.out.println( repeat(size-i, " ") +
+				repeat(i, "*") + repeat(i-1, "*") );
+		}
+		// bottom of the diamond
+		for(int i = size; i > 0; i--)
+		{
+			System.out.println( repeat(size-i, " ") +
+				repeat(i, "*") + repeat(i-1, "*") );
+		}
+	}
+		
+
 	public static void main(String[] args)
 	{
-		int s = IBIO.inputInt("Xmas tree size? ");
+		int s = IBIO.inputInt("Diamond tree size? ");
 		System.out.println( "\n" );
 		diamond(s);
+
+		System.out.println( "\n" );
+		diamond2(s);
 	}
 	
 	
