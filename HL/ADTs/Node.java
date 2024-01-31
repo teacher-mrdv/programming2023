@@ -4,7 +4,6 @@
  *  _____________
  * | data | next |
  * | (int)|(Node)|
- * |	  | /null|
  * |______|______|
  *
  * null = empty, non-existent, void
@@ -19,7 +18,7 @@ public class Node
 	// empty constructor (OOP) creates an empty node (defaults)
 	public Node() { }
 
-	// custom constructor that creates and initialises a node
+	// custom constructor that creates and initialises a node with data (integer "d" in this example)
 	public Node(int d)
 	{
 		data = d;
@@ -32,11 +31,6 @@ public class Node
 	{	return next != null;
 	}
 
-	// this method converts a Node object to a String representation
-	public String toString()
-	{
-		return this.data + "";
-	}
 	
 }
 
