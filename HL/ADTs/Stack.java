@@ -25,6 +25,14 @@ public class Stack
 		}
 	}
 
+	public int pop()
+	{
+		int data = top.data;
+		top = top.next;
+		return data;
+		
+	}
+
 	public void printStack()
 	{
 		Node temp = top;
