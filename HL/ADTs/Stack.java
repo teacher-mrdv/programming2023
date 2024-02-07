@@ -27,22 +27,49 @@ public class Stack
 
 	public int pop()
 	{
-		int data = top.data;
-		top = top.next;
-		return data;
-		
+		if( isEmpty() == false ) {
+			int data = top.data;
+			top = top.next;
+			return data;
+		} else {
+			System.out.println("The stack is empty");
+			return 0;
+		}
+	}
+
+	public int peek()
+	{
+		if( isEmpty() == false ) {
+			int data = top.data;
+			return data;
+		} else {
+			System.out.println("The stack is empty");
+			return 0;
+		}
 	}
 
 	public void printStack()
 	{
 		Node temp = top;
-		System.out.print("TOP -> ");
+		System.out.print(this.size() + " TOP -> ");
 		while(temp != null)
 		{
 			System.out.print(temp.data + " -> ");
 			temp = temp.next;
 		}
 		System.out.println("Null\n");
+	}
+
+	public int size()
+	{
+		int counter = 0;
+		Node temp = top;
+		while(temp != null)
+		{
+			counter++;
+			temp = temp.next;
+		}
+		return counter;
 	}
 
 	public static void main(String[] args)
@@ -58,6 +85,16 @@ public class Stack
 		s.printStack();
 		s.push(3);
 		s.printStack();
+		
+		System.out.println(s.pop());
+		s.printStack();
+		System.out.println(s.pop());
+		s.printStack();
+		System.out.println(s.pop());
+		s.printStack();
+		System.out.println(s.pop());
+		s.printStack();
+		System.out.println(s.pop());
 	}
 }
 
