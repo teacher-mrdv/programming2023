@@ -51,7 +51,7 @@ public class Stack
 	public void printStack()
 	{
 		Node temp = top;
-		System.out.print(size() + " TOP -> ");
+		System.out.print("Size: " + size() + " | TOP -> ");
 		while(temp != null)
 		{
 			System.out.print(temp.data + " -> ");
