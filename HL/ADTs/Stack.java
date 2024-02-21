@@ -51,7 +51,7 @@ public class Stack
 	public void printStack()
 	{
 		Node temp = top;
-		System.out.print(this.size() + " TOP -> ");
+		System.out.print(size() + " TOP -> ");
 		while(temp != null)
 		{
 			System.out.print(temp.data + " -> ");
@@ -72,29 +72,6 @@ public class Stack
 		return counter;
 	}
 
-	public static void main(String[] args)
-	{
-		Stack s = new Stack();
-		if(s.isEmpty() == true)
-		{	System.out.println("the stack is empty");
-		}
-		s.printStack();
-		s.push(1);
-		s.printStack();
-		s.push(2);
-		s.printStack();
-		s.push(3);
-		s.printStack();
-		
-		System.out.println(s.pop());
-		s.printStack();
-		System.out.println(s.pop());
-		s.printStack();
-		System.out.println(s.pop());
-		s.printStack();
-		System.out.println(s.pop());
-		s.printStack();
-		System.out.println(s.pop());
-	}
+
 }
 
