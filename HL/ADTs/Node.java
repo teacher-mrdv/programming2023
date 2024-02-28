@@ -31,6 +31,8 @@ public class Node
 	{	return next != null;
 	}
 
-	
+	public String toString() {
+		return Integer.toString(data);
+	}
 }
 
