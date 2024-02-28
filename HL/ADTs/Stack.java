@@ -1,7 +1,8 @@
 
 public class Stack
 {
-	Node top;
+	Node top = null;
+	int size = 0;
 
 	public boolean isEmpty()
 	{
@@ -23,6 +24,7 @@ public class Stack
 			newNode.next = top;
 			top = newNode;
 		}
+		size++;
 	}
 
 	public int pop()
@@ -30,6 +32,7 @@ public class Stack
 		if( isEmpty() == false ) {
 			int data = top.data;
 			top = top.next;
+			size--;
 			return data;
 		} else {
 			System.out.println("The stack is empty");
@@ -51,13 +54,13 @@ public class Stack
 	public void printStack()
 	{
 		Node temp = top;
-		System.out.print("Size: " + size() + " | TOP -> ");
+		System.out.print("Size: " + size + " | TOP -> ");
 		while(temp != null)
 		{
 			System.out.print(temp.data + " -> ");
 			temp = temp.next;
 		}
-		System.out.println("Null\n");
+		System.out.println("Null");
 	}
 
 	public int size()
