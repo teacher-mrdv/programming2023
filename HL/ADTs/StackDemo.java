@@ -55,6 +55,7 @@ public class StackDemo
 			reverse.push( intArray[i] );
 			reverse.printStack();
 		}
+		System.out.println("\nRewriting array:");
 		int index = 0;
 		while( !reverse.isEmpty() ) {
 			intArray[index] = reverse.pop();
