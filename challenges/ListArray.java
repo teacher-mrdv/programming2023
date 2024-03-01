@@ -1,10 +1,10 @@
 /*
- * Simulation of a (linked) list using arrays - advanced version
+ * Simulation of a list using arrays - advanced version
  */
-public class ListArrayTest
+public class ListArray
 {
-	// DO NOT MODIFY THE FIRST 48 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
-	// just add one line to output your name at the beginning of it ^^^^^^^^^^^
+	// DO NOT MODIFY THE FIRST 55 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
+
 	public static char[] list = new char[1];
 	public static int end = 0; // to keep track of the end of the list
 	
