@@ -57,7 +57,9 @@ public class ListArray
 	// converts list to a String
 	public static String listToString()
 	{	String output = "";
-		// your code goes here #0 X1 MARK
+		for(int i = 0; i < end; i++)
+		{	output = output + list[i];
+		}
 		return output;
 	}
 	
@@ -94,13 +96,24 @@ public class ListArray
 	}
 	
 	// create a method to insert an element AT an index of the list
-	public static void insert(int position, char element)
+	public static void insert(char element, int position)
 	{
 		// your code goes here #5 X3 MARKS
 	}
 
 	public static void resize()
 	{	// Writing this method may help you with the extra challenge
+	}
+
+	public boolean swap(int index1, index2) {
+		if(index1 < 0 || index1 > list.length
+		|| index2 < 0 || index2 > list.length) {
+			return false;
+		}
+		char temp = list[index1];
+		list[index1] = list[index2];
+		list[index2] = temp;
+		return true;
 	}
 	
 	public static void main (String[] args)
