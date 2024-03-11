@@ -105,7 +105,7 @@ public class ListArray
 	{	// Writing this method may help you with the extra challenge
 	}
 
-	public boolean swap(int index1, index2) {
+	public boolean swap(int index1, int index2) {
 		if(index1 < 0 || index1 > list.length
 		|| index2 < 0 || index2 > list.length) {
 			return false;
