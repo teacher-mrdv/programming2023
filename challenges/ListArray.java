@@ -1,5 +1,13 @@
 /*
  * Simulation of a list using arrays - advanced version
+ * ORDERED ARRAYS
+ * We will work on this challenge during the following practical programming periods.
+ *
+ * Study the methods given in the ListArray class. These are meant to implement the basic operations of a list using arrays. Note the indexOf method, which is a linear search returning the (first) index of a matching element character in the array.
+ * Complete the listToString, including all three replace methods and the insert method. The resize method is optional and meant to "shrink" a partially filled array so that the length and the size/population/end are the same (no empty indexes).
+ *
+ * Bring your questions to our problem-solving and coding classes.
+ * Note: The end global variable may also be named currentSize, lastIndex, population, or arrayPopulation.
  */
 public class ListArray
 {
