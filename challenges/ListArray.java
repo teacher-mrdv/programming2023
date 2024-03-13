@@ -76,14 +76,25 @@ public class ListArray
 		if(index < 0 || index > list.length)
 		{	return false;
 		} else {
-			// your code goes here #1 X1 MARK
+			list[index] = repl;
 			return true;
 		}
 	}
 
 	public static int replace(char orig, char repl)
 	{	int count = 0; // count replacements made
-		// your code goes here #2 X2 MARKS
+		// your code goes here #2 X2
+		int start = indexOf(orig);
+		if( start != -1 ) {
+			// 1 mark for traversing the array
+			for(int i = start;  i < list.length; i++) {
+				// 1 mark for replacing the characters
+				if(list[i] == orig) {
+					list[i] = repl;
+					count++;
+				}
+			}
+		}
 		return count;
 	}
 

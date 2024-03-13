@@ -1,14 +1,19 @@
 /*
- * Queue.java
+ * Queue2.java
  * 
+ * Universal/more flexible queue class, using Node2
+ * Note that we never refer to the data part, but we're
+ * fully implementing a queue here
+ * 
+ * mrdv 2024
  * 
  */
 
 
-public class Queue
+public class Queue2
 {
-	Node head = null;
-	Node tail = null;
+	Node2 head = null;
+	Node2 tail = null;
 	int size = 0;
 
 	public boolean isEmpty()
@@ -16,9 +21,7 @@ public class Queue
 		return head == null;
 	}
 
-	public void enQueue(int data) {
-		// your code goes here
-		Node newNode = new Node(data);
+	public void enQueue(Node2 newNode) {
 		if( isEmpty() ) {
 			head = newNode;
 			tail = newNode;
@@ -29,20 +32,20 @@ public class Queue
 		size++;
 	}
 
-	public int deQueue() {
+	public Node2 deQueue() {
 		if( isEmpty() == false ) {
-			int data = head.data;
+			Node2 temp = head;
 			head = head.next;
 			size--;
-			return data;
+			return temp;
 		} else {
 			System.out.println("The queue is empty");
-			return 0;
+			return null;
 		}
 	}
 
 	public void printQueue() {
-		Node temp = head;
+		Node2 temp = head;
 		System.out.print("Size: " + size + " | HEAD <- ");
 		while(temp != null) {
 			System.out.print(temp.data + " <- ");
