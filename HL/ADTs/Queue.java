@@ -19,59 +19,39 @@ public class Queue
         // no need to check for the tail
     }
 
-    public void enQueue(int data)
-    {
-        Node newNode = new Node(data);
-        if( isEmpty() )
-        {
-            head = newNode;
-        } else
-        {
-            tail.next = newNode;
-        }
-        tail = newNode;
-        size++;
-    }
+	public void enQueue(int data) {
+		// your code goes here
+		Node newNode = new Node(data);
+		if( isEmpty() ) {
+			head = newNode;
+			tail = newNode;
+		} else {
+			tail.next = newNode;
+			tail = newNode;
+		}
+		size++;
+	}
 
-    public int deQueue()
-    {
-        if (!isEmpty())
-        {
-            int d = head.data;
-            head  = head.next;
-            size--;
-            return d;
-        } else
-        {
-            System.out.println("Queue is empty.");
-            return 0;
-        }
-    }
+	public int deQueue() {
+		if( isEmpty() == false ) {
+			int data = head.data;
+			head = head.next;
+			size--;
+			return data;
+		} else {
+			System.out.println("The queue is empty");
+			return 0;
+		}
+	}
 
-    public void printQueue()
-    {
-        Node temp = head;
-        System.out.print("head -> ");
-        while (temp != null)
-        {
-            if(temp.next == null) System.out.print("tail -> ");
-            System.out.print(temp.data);
-            System.out.print(" -> ");
-            temp = temp.next;
-        }
-        System.out.println("NULL. Size = " + size);
-    }
-
-    public int size()
-    {
-        Node temp = head;
-        int counter = 0;
-        while (temp != null)
-        {
-            counter++;
-            temp = temp.next;
-        }
-        return counter;
-    }
+	public void printQueue() {
+		Node temp = head;
+		System.out.print("Size: " + size + " | HEAD <- ");
+		while(temp != null) {
+			System.out.print(temp.data + " <- ");
+			temp = temp.next;
+		}
+		System.out.println( "TAIL" );
+	}
 
 }

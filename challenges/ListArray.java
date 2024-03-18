@@ -1,11 +1,19 @@
 /*
  * Simulation of a list using arrays - advanced version
+ * ORDERED ARRAYS
+ * We will work on this challenge during the following practical programming periods.
+ *
+ * Study the methods given in the ListArray class. These are meant to implement the basic operations of a list using arrays. Note the indexOf method, which is a linear search returning the (first) index of a matching element character in the array.
+ * Complete the listToString, including all three replace methods and the insert method. The resize method is optional and meant to "shrink" a partially filled array so that the length and the size/population/end are the same (no empty indexes).
+ *
+ * Bring your questions to our problem-solving and coding classes.
+ * Note: The end global variable may also be named currentSize, lastIndex, population, or arrayPopulation.
  */
 public class ListArray
 {
 	// DO NOT MODIFY THE FIRST 55 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
 
-	public static char[] list = new char[1];
+	public static char[] list = new char[10];
 	public static int end = 0; // to keep track of the end of the list
 	
 	public static boolean isEmpty()
@@ -28,7 +36,7 @@ public class ListArray
 		} else {
 			list[end] = element;
 		}
-		end++;
+		end = end + 1;
 	}
 	
 	public static int indexOf(char element)
@@ -57,7 +65,9 @@ public class ListArray
 	// converts list to a String
 	public static String listToString()
 	{	String output = "";
-		// your code goes here #0 X1 MARK
+		for(int i = 0; i < end; i++)
+		{	output = output + list[i];
+		}
 		return output;
 	}
 	
@@ -66,24 +76,45 @@ public class ListArray
 		if(index < 0 || index > list.length)
 		{	return false;
 		} else {
-			// your code goes here #1 X1 MARK
+			list[index] = repl;
 			return true;
 		}
 	}
 
 	public static int replace(char orig, char repl)
 	{	int count = 0; // count replacements made
-		// your code goes here #2 X2 MARKS
+		// your code goes here #2 X2
+		int start = indexOf(orig);
+		if( start != -1 ) {
+			// 1 mark for traversing the array
+			for(int i = start;  i < list.length; i++) {
+				// 1 mark for replacing the characters
+				if(list[i] == orig) {
+					list[i] = repl;
+					count++;
+				}
+			}
+		}
 		return count;
 	}
 
 	// create a method to remove directly by INDEX
 	public static boolean remove(int index)
-	{
-		if(index < 0)
+	{	// range check for index
+		
+		if(index < 0 || index >= list.length)
 		{	return false;
 		}
-		// your code goes here #3 X1 MARK
+		// are we removing the last one?
+		if(index == end-1) {
+			end--;
+			return true;
+		}
+		// move the array contents "one index up"
+		for(int i = index; i < end-1; i++) {
+			list[i] = list[i+1];
+		}
+		end--;
 		return true;  // success
 	}
 
@@ -94,13 +125,24 @@ public class ListArray
 	}
 	
 	// create a method to insert an element AT an index of the list
-	public static void insert(int position, char element)
+	public static void insert(char element, int position)
 	{
 		// your code goes here #5 X3 MARKS
 	}
 
 	public static void resize()
 	{	// Writing this method may help you with the extra challenge
+	}
+
+	public boolean swap(int index1, int index2) {
+		if(index1 < 0 || index1 > list.length
+		|| index2 < 0 || index2 > list.length) {
+			return false;
+		}
+		char temp = list[index1];
+		list[index1] = list[index2];
+		list[index2] = temp;
+		return true;
 	}
 	
 	public static void main (String[] args)
@@ -146,14 +188,16 @@ public class ListArray
 		printList();
 		System.out.println("\nremove(10):" + remove(10));
 		printList();
-		System.out.println("\ninsert('+', 99):");
-		insert('+', 99);	printList();
+		System.out.println("\nremove(0):" + remove(0));
+		printList();
+		System.out.println("\ninsert('+', 12):");
+		insert('+', 12);	printList();
 		System.out.println("List length = " + list.length);
 		System.out.println("\nremove('+'):" + remove('+'));
 		printList();
 		System.out.println("\nappend('#'):");
 		append('#');	printList();
-		System.out.println("\nremove(end):" + remove(end));
+		System.out.println("\nremove(end-1):" + remove(end-1));
 		printList();
 		System.out.println("\nList length = " + list.length);
 		System.out.println("List to String: " + listToString() );
@@ -346,7 +390,7 @@ remove(10):true
 10 : e
 11 : r <-- END
 
-insert('+', 99):
+insert('+', end-1):
  0 : D
  1 : +
  2 : a
@@ -389,7 +433,7 @@ append('#'):
 10 : r
 11 : # <-- END
 
-remove(end):true
+remove(end-1):true
  0 : D
  1 : a
  2 : r
