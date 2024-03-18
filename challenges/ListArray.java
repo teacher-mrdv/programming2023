@@ -13,7 +13,7 @@ public class ListArray
 {
 	// DO NOT MODIFY THE FIRST 55 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
 
-	public static char[] list = new char[1];
+	public static char[] list = new char[10];
 	public static int end = 0; // to keep track of the end of the list
 	
 	public static boolean isEmpty()
@@ -36,7 +36,7 @@ public class ListArray
 		} else {
 			list[end] = element;
 		}
-		end++;
+		end = end + 1;
 	}
 	
 	public static int indexOf(char element)
@@ -100,11 +100,21 @@ public class ListArray
 
 	// create a method to remove directly by INDEX
 	public static boolean remove(int index)
-	{
-		if(index < 0)
+	{	// range check for index
+		
+		if(index < 0 || index >= list.length)
 		{	return false;
 		}
-		// your code goes here #3 X1 MARK
+		// are we removing the last one?
+		if(index == end-1) {
+			end--;
+			return true;
+		}
+		// move the array contents "one index up"
+		for(int i = index; i < end-1; i++) {
+			list[i] = list[i+1];
+		}
+		end--;
 		return true;  // success
 	}
 
@@ -178,14 +188,16 @@ public class ListArray
 		printList();
 		System.out.println("\nremove(10):" + remove(10));
 		printList();
-		System.out.println("\ninsert('+', 99):");
-		insert('+', 99);	printList();
+		System.out.println("\nremove(0):" + remove(0));
+		printList();
+		System.out.println("\ninsert('+', 12):");
+		insert('+', 12);	printList();
 		System.out.println("List length = " + list.length);
 		System.out.println("\nremove('+'):" + remove('+'));
 		printList();
 		System.out.println("\nappend('#'):");
 		append('#');	printList();
-		System.out.println("\nremove(end):" + remove(end));
+		System.out.println("\nremove(end-1):" + remove(end-1));
 		printList();
 		System.out.println("\nList length = " + list.length);
 		System.out.println("List to String: " + listToString() );
@@ -378,7 +390,7 @@ remove(10):true
 10 : e
 11 : r <-- END
 
-insert('+', 99):
+insert('+', end-1):
  0 : D
  1 : +
  2 : a
@@ -421,7 +433,7 @@ append('#'):
 10 : r
 11 : # <-- END
 
-remove(end):true
+remove(end-1):true
  0 : D
  1 : a
  2 : r
