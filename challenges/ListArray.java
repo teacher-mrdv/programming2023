@@ -7,7 +7,7 @@
  * Complete the listToString, including all three replace methods and the insert method. The resize method is optional and meant to "shrink" a partially filled array so that the length and the size/population/end are the same (no empty indexes).
  *
  * Bring your questions to our problem-solving and coding classes.
- * Note: The end global variable may also be named currentSize, lastIndex, population, or arrayPopulation.
+ * Note: The **end** global variable may also be named currentSize, lastIndex, population, or arrayPopulation.
  */
 public class ListArray
 {
@@ -15,15 +15,15 @@ public class ListArray
 
 	public static char[] list = new char[10];
 	public static int end = 0; // to keep track of the end of the list
-	
+
 	public static boolean isEmpty()
 	{	return end == 0;
 	}
-	
+
 	public static boolean isFull()
 	{	return end == list.length;
 	}
-	
+
 	public static void append(char element)
 	{
 		if(isFull() == true)
@@ -38,7 +38,7 @@ public class ListArray
 		}
 		end = end + 1;
 	}
-	
+
 	public static int indexOf(char element)
 	{
 		for(int i = 0; i < list.length; i++)
@@ -61,16 +61,18 @@ public class ListArray
 			}
 		}
 	}
-	
+
 	// converts list to a String
 	public static String listToString()
 	{	String output = "";
-		for(int i = 0; i < end; i++)
-		{	output = output + list[i];
+		if(list != null) {
+			for(int i = 0; i < end; i++)
+			{	output = output + list[i];
+			}
 		}
 		return output;
 	}
-	
+
 	public static boolean replace(int index, char repl)
 	{
 		if(index < 0 || index > list.length)
@@ -101,7 +103,7 @@ public class ListArray
 	// create a method to remove directly by INDEX
 	public static boolean remove(int index)
 	{	// range check for index
-		
+
 		if(index < 0 || index >= list.length)
 		{	return false;
 		}
@@ -123,7 +125,7 @@ public class ListArray
 		// your code goes here #4 X2 MARKS
 		return count;  // success
 	}
-	
+
 	// create a method to insert an element AT an index of the list
 	public static void insert(char element, int position)
 	{
@@ -132,6 +134,11 @@ public class ListArray
 
 	public static void resize()
 	{	// Writing this method may help you with the extra challenge
+		char[] newList = new char[end];
+		for(int i = 0; i < end; i++)
+		{	newList[i] = list[i];
+		}
+		list = newList;
 	}
 
 	public boolean swap(int index1, int index2) {
@@ -144,11 +151,11 @@ public class ListArray
 		list[index2] = temp;
 		return true;
 	}
-	
+
 	public static void main (String[] args)
 	{
 		// output your name on this line //
-		
+
 // XXXXXXXXXXXXXXXXXXXX DO NOT MODIFY THE CODE BELOW THIS LINE XXXXXXXXXXXXXXXXXXXXX
 		System.out.println("\nappend('*'):");
 		append('*');	printList();
