@@ -17,11 +17,23 @@ public class Node2
 	Node2 next; // self-reference (Node refers/links/points to another node)
 
 	// empty constructor (OOP) creates an empty node (defaults)
-	public Node2() { }
+	public Node2() {
+		data = null;
+		next = null;
+	}
+
+	public Node2(String d) {
+		data = d;
+		next = null;
+	}
 
 	// is the (current) node linked to another node or does it point to null?
 	public boolean hasNext()
 	{	return next != null;
+	}
+
+	public String toString() {
+		return data;
 	}
 
 }

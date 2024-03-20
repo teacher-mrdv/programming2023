@@ -27,14 +27,14 @@ public class StackDemo2
 		}
 		System.out.println("Pushing data into the stack");
 		s.printStack(); // print initial state of the stack
-		Node2 add = new Node2();
-		add.data = "one";
+		Node2 add = new Node2("one");
+		//add.data = "one";
 		s.push(add);
 		s.printStack(); // check state of the stack after pushing
-		add.data = "two";
+		add = new Node2("two");
 		s.push(add);
 		s.printStack();
-		add.data = "tres";
+		add = new Node2("tres");
 		s.push(add);
 		s.printStack();
 
@@ -51,18 +51,22 @@ public class StackDemo2
 		
 		String[] strArray = {"uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve", "diez"};
 		System.out.println("\nReversing the following array using a stack\nArray:");
-		printArray(intArray);
+		printArray(strArray);
 		// use a stack to reverse the order of the elements of this array
 		Stack2 reverse = new Stack2();
 		System.out.println("\nReverse stack:");
 		for(int i = 0; i < strArray.length; i++) {
-			reverse.push( strArray[i] );
+			Node2 temp = new Node2();
+			temp.data = strArray[i];
+			reverse.push( temp );
 			reverse.printStack();
 		}
 		System.out.println("\nRewriting array:");
 		int index = 0;
 		while( !reverse.isEmpty() ) {
-			strArray[index] = reverse.pop();
+			Node2 temp = new Node2();
+			temp = reverse.pop();
+			strArray[index] = temp.data;
 			printArray(strArray);
 			index++;
 		}
