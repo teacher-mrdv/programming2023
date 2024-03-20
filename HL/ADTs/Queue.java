@@ -1,20 +1,23 @@
 /*
- * Queue.java
- * 
- * 
+ * ADT: queue skeleton -- FIFO
+ * Complete the following methods:
+ * 	enqueue, dequeue, isEmpty, printQueue
+ *
+ * Requirements for this challenge:
+ *  IBIO.java, Node.java, QueueTest.java
  */
-
 
 public class Queue
 {
-	Node head = null;
-	Node tail = null;
-	int size = 0;
+    Node head;
+    Node tail;
+    int size = 0;
 
-	public boolean isEmpty()
-	{	// 		abbreviated
-		return head == null;
-	}
+    public boolean isEmpty()
+    {
+        return head == null;
+        // no need to check for the tail
+    }
 
 	public void enQueue(int data) {
 		// your code goes here
@@ -50,6 +53,5 @@ public class Queue
 		}
 		System.out.println( "TAIL" );
 	}
-	
-}
 
+}
