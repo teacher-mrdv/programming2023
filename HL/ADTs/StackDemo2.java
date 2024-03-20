@@ -1,5 +1,12 @@
-/*
- * StackDemo.java
+/* ******************
+ *  StackDemo2.java *
+ * ******************
+ * 
+ * Write the Stack2.java class to make this demo
+ * work properly. Take inspiration from Queue2.java
+ *
+ * Dependencies: Node2.java, Stack2.java
+ * Stack2.java <- your challenge to write
  * 
  */
 
