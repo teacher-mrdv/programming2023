@@ -87,10 +87,10 @@ public class ListArray
 		int start = indexOf(orig);
 		if( start != -1 ) {
 			// 1 mark for traversing the array
-			for(int i = start;  i < list.length; i++) {
+			for(int i = start;  i < end; i++) {
 				// 1 mark for replacing the characters
 				if(list[i] == orig) {
-					list[i] = repl;
+					list[i] = repl; // OR replace(i, repl);
 					count++;
 				}
 			}
