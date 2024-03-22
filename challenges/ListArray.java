@@ -51,7 +51,7 @@ public class ListArray
         for (int i = 0; i < end; i++) {
             System.out.printf("%2d : %c", i, list[i]);
             if (i == end - 1) {
-                System.out.println(" <-- END");
+                System.out.println(" <-- END [" + end + "]");
             } else {
                 System.out.println();
             }
@@ -140,6 +140,21 @@ public class ListArray
             list[position] = element;
             end++;
         }
+        if (isFull()) { // copy the array into a new, larger array if the
+            // original is full
+            char[] bigger = new char[list.length + 1];
+            int newIndex = 0;
+            for (int i = 0; i < list.length; i++) {
+                if (i == position) {
+                    bigger[newIndex] = element;
+                    newIndex++;
+                }
+                bigger[newIndex] = list[i];
+                newIndex++;
+            }
+            list = bigger;
+            end++;
+        }
     }
 
     public static void resize() {    // Writing this method may help you with the extra challenge
@@ -189,8 +204,8 @@ public class ListArray
 		System.out.println("List to String: " + listToString() );
 		System.out.println("\nremove('*'):" + remove('*'));
 		printList();
-		System.out.println("\ninsert('D', 0):");
-		insert('D', 0);	printList();
+		System.out.println("\ninsert('D', 1):");
+		insert('D', 1);	printList();
 		System.out.println("\ninsert('r', 9):");
 		insert('r', 9);	printList();
 		System.out.println("\ninsert('h', 5):");
@@ -207,8 +222,9 @@ public class ListArray
 		printList();
 		System.out.println("\nremove(0):" + remove(0));
 		printList();
-		System.out.println("\ninsert('+', 12):");
-		insert('+', 12);	printList();
+		System.out.println("\ninsert('+', 99):");
+		insert('+', 99);
+		printList();
 		System.out.println("List length = " + list.length);
 		System.out.println("\nremove('+'):" + remove('+'));
 		printList();
