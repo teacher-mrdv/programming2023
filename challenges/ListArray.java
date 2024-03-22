@@ -11,175 +11,156 @@
  */
 public class ListArray
 {
-	// DO NOT MODIFY THE FIRST 55 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
+	// DO NOT MODIFY THE FIRST 18 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
 
 	public static char[] list = new char[10];
 	public static int end = 0; // to keep track of the end of the list
 
-	public static boolean isEmpty()
-	{	return end == 0;
-	}
+    public static boolean isEmpty() {
+        return end == 0;
+    }
 
-	public static boolean isFull()
-	{	return end == list.length;
-	}
+    public static boolean isFull() {
+        return end == list.length;
+    }
 
-	public static void append(char element)
-	{
-		if(isFull() == true)
-		{	char[] newList = new char[list.length+1];
-			for(int i = 0; i < end; i++)
-			{	newList[i] = list[i];
-			}
-			newList[end] = element;
-			list = newList;
-		} else {
-			list[end] = element;
-		}
-		end = end + 1;
-	}
+    public static void append(char element) {
+        if (isFull() == true) {
+            char[] newList = new char[list.length + 1];
+            for (int i = 0; i < end; i++) {
+                newList[i] = list[i];
+            }
+            newList[end] = element;
+            list = newList;
+        } else {
+            list[end] = element;
+        }
+        end = end + 1;
+    }
 
-	public static int indexOf(char element)
-	{
-		for(int i = 0; i < list.length; i++)
-		{
-			if(element == list[i])
-			{	return i;
-			}
-		}
-		return -1;
-	}
+    public static int indexOf(char element) {
+        for (int i = 0; i < end; i++) {
+            if (element == list[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
-	public static void printList()
-	{
-		for(int i = 0; i < end; i++)
-		{	System.out.printf("%2d : %c", i, list[i]);
-			if(i == end-1)
-			{	System.out.println(" <-- END");
-			} else {
-				System.out.println();
-			}
-		}
-	}
+    public static void printList() {
+        for (int i = 0; i < end; i++) {
+            System.out.printf("%2d : %c", i, list[i]);
+            if (i == end - 1) {
+                System.out.println(" <-- END");
+            } else {
+                System.out.println();
+            }
+        }
+    }
 
-	// converts list to a String
-	public static String listToString()
-	{	String output = "";
-		if(list != null) {
-			for(int i = 0; i < end; i++)
-			{	output = output + list[i];
-			}
-		}
-		return output;
-	}
+    // converts list to a String
+    public static String listToString() {
+        String output = "";
+        if (list != null) {
+            for (int i = 0; i < end; i++) {
+                output = output + list[i];
+            }
+        }
+        return output;
+    }
 
-	public static boolean replace(int index, char repl)
-	{
-		if(index < 0 || index > list.length)
-		{	return false;
-		} else {
-			list[index] = repl;
-			return true;
-		}
-	}
+    public static boolean replace(int index, char repl) {
+        if (index < 0 || index > list.length) {
+            return false;
+        } else {
+            list[index] = repl;
+            return true;
+        }
+    }
 
-	public static int replace(char orig, char repl)
-	{	int count = 0; // count replacements made
-		// your code goes here #2 X2
-		int start = indexOf(orig);
-		if( start != -1 ) {
-			// 1 mark for traversing the array
-			for(int i = start;  i < end; i++) {
-				// 1 mark for replacing the characters
-				if(list[i] == orig) {
-					list[i] = repl; // OR replace(i, repl);
-					count++;
-				}
-			}
-		}
-		return count;
-	}
+    public static int replace(char orig, char repl) {
+        int count = 0; // count replacements made
+        // your code goes here #2 X2
+        int start = indexOf(orig);
+        if (start != -1) {
+            // 1 mark for traversing the array
+            for (int i = start; i < end; i++) {
+                // 1 mark for replacing the characters
+                if (list[i] == orig) {
+                    list[i] = repl; // OR replace(i, repl);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
-	// create a method to remove directly by INDEX
-	public static boolean remove(int index)
-	{	// range check for index
+    // create a method to remove directly by INDEX
+    public static boolean remove(int index) {    // range check for index
 
-		if(index < 0 || index >= list.length)
-		{	return false;
-		}
-		// are we removing the last one?
-		if(index == end-1) {
-			end--;
-			return true;
-		}
-		// move the array contents "one index up"
-		for(int i = index; i < end-1; i++) {
-			list[i] = list[i+1];
-		}
-		end--;
-		return true;  // success
-	}
+        if (index < 0 || index >= list.length) {
+            return false;
+        } else
+        // are we removing the last one?
+        if (index >= (end - 1)) {
+            end--;
+            return true;
+        } else {
+            // move the array contents "one index up"
+            for (int i = index; i < end - 1; i++) {
+                list[i] = list[i + 1];
+            }
+            end--;
+            return true;  // success
+        }
+    }
 
-	public static int remove(char element)
-	{	int count = 0;
-		// your code goes here #4 X2 MARKS
-		int index = indexOf(element);
-		while( index != -1 ) {
-			remove(index);
-			count++;
-			index = indexOf(element);
-		}
-		return count;  // success
-	}
+    public static int remove(char element) {
+        int count = 0;
+        int index = indexOf(element);
+        while (index != -1) {
+            //System.out.println(index);
+            remove(index);
+            count++;
+            index = indexOf(element);
+        }
+        return count;  // success
+    }
 
-	// create a method to insert an element AT an index of the list
-	public static void insert(char element, int position)
-	{
-		// your code goes here #5 X3 MARKS
-		if( !isFull() ) { // usFull() == false
-			
-			for(int i = end-1; i >= position; i--) {
-				list[i+1] = list[i];
-			}
-			list[position] = element;
-			end++;
-		} else { // if the array IS FULL
-			char[] bigger = new char[list.length+1];
-			int newIndex = 0;
-			for(int i = 0; i < end; i++) {
-				char temp = list[i];
-				if( i == position ) {
-					newList[newIndex] = element;
-					newIndex++;
-				}
-			}
-			if(position >= end) {
-				newList[end] = element;
-			}
-			list = newList;
-			end++;
-		}
-	}
+    // create a method to insert an element AT an index of the list
+    public static void insert(char element, int position) {
+        if (position >= end) { // insert at/past end
+            append(element);
+            return;
+        }
+        if (!isFull()) { // if array's not full...
+            for (int i = end - 1; i >= position; i--) {
+                list[i + 1] = list[i];
+            }
+            list[position] = element;
+            end++;
+        }
+    }
 
-	public static void resize()
-	{	// Writing this method may help you with the extra challenge
-		char[] newList = new char[end];
-		for(int i = 0; i < end; i++)
-		{	newList[i] = list[i];
-		}
-		list = newList;
-	}
+    public static void resize() {    // Writing this method may help you with the extra challenge
+        char[] newList = new char[end];
+        for (int i = 0; i < end; i++) {
+            newList[i] = list[i];
+        }
+        list = newList;
+    }
 
-	public boolean swap(int index1, int index2) {
-		if(index1 < 0 || index1 > list.length
-		|| index2 < 0 || index2 > list.length) {
-			return false;
-		}
-		char temp = list[index1];
-		list[index1] = list[index2];
-		list[index2] = temp;
-		return true;
-	}
+    public boolean swap(int index1, int index2) {
+        if (index1 < 0 || index1 > list.length
+                || index2 < 0 || index2 > list.length) {
+            return false;
+        }
+        char temp = list[index1];
+        list[index1] = list[index2];
+        list[index2] = temp;
+        return true;
+    }
+
 
 	public static void main (String[] args)
 	{
