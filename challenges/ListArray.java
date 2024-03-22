@@ -236,32 +236,33 @@ public class ListArray
 		System.out.println("List to String: " + listToString() );
 	}
 }
-/*
+/* OUTPUT ---
+
 
 append('*'):
- 0 : * <-- END
+ 0 : * <-- END [1]
 
 append('+'):
  0 : *
- 1 : + <-- END
+ 1 : + <-- END [2]
 
 append('a'):
  0 : *
  1 : +
- 2 : a <-- END
+ 2 : a <-- END [3]
 
 append('r'):
  0 : *
  1 : +
  2 : a
- 3 : r <-- END
+ 3 : r <-- END [4]
 
 append('t'):
  0 : *
  1 : +
  2 : a
  3 : r
- 4 : t <-- END
+ 4 : t <-- END [5]
 
 append('p'):
  0 : *
@@ -269,7 +270,7 @@ append('p'):
  2 : a
  3 : r
  4 : t
- 5 : p <-- END
+ 5 : p <-- END [6]
 
 append('a'):
  0 : *
@@ -278,7 +279,7 @@ append('a'):
  3 : r
  4 : t
  5 : p
- 6 : a <-- END
+ 6 : a <-- END [7]
 
 append('l'):
  0 : *
@@ -288,7 +289,7 @@ append('l'):
  4 : t
  5 : p
  6 : a
- 7 : l <-- END
+ 7 : l <-- END [8]
 
 append('e'):
  0 : *
@@ -299,9 +300,9 @@ append('e'):
  5 : p
  6 : a
  7 : l
- 8 : e <-- END
+ 8 : e <-- END [9]
 
-List length = 9
+List length = 10
 List to String: *+artpale
 
 remove('*'):1
@@ -312,22 +313,22 @@ remove('*'):1
  4 : p
  5 : a
  6 : l
- 7 : e <-- END
+ 7 : e <-- END [8]
 
-insert('D', 0):
- 0 : D
- 1 : +
+insert('D', 1):
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
  5 : p
  6 : a
  7 : l
- 8 : e <-- END
+ 8 : e <-- END [9]
 
 insert('r', 9):
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -335,11 +336,11 @@ insert('r', 9):
  6 : a
  7 : l
  8 : e
- 9 : r <-- END
+ 9 : r <-- END [10]
 
 insert('h', 5):
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -348,11 +349,11 @@ insert('h', 5):
  7 : a
  8 : l
  9 : e
-10 : r <-- END
+10 : r <-- END [11]
 
 insert('~', 6):
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -362,11 +363,11 @@ insert('~', 6):
  8 : a
  9 : l
 10 : e
-11 : r <-- END
+11 : r <-- END [12]
 
 insert('V', 7):
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -377,11 +378,11 @@ insert('V', 7):
  9 : a
 10 : l
 11 : e
-12 : r <-- END
+12 : r <-- END [13]
 
 replace(8, 'a'):true
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -392,11 +393,11 @@ replace(8, 'a'):true
  9 : a
 10 : l
 11 : e
-12 : r <-- END
+12 : r <-- END [13]
 
 replace(9, 'd'):true
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -407,11 +408,11 @@ replace(9, 'd'):true
  9 : d
 10 : l
 11 : e
-12 : r <-- END
+12 : r <-- END [13]
 
 remove(10):true
- 0 : D
- 1 : +
+ 0 : +
+ 1 : D
  2 : a
  3 : r
  4 : t
@@ -421,25 +422,9 @@ remove(10):true
  8 : a
  9 : d
 10 : e
-11 : r <-- END
+11 : r <-- END [12]
 
-insert('+', end-1):
- 0 : D
- 1 : +
- 2 : a
- 3 : r
- 4 : t
- 5 : h
- 6 : ~
- 7 : V
- 8 : a
- 9 : d
-10 : e
-11 : r
-12 : + <-- END
-List length = 13
-
-remove('+'):2
+remove(0):true
  0 : D
  1 : a
  2 : r
@@ -450,7 +435,35 @@ remove('+'):2
  7 : a
  8 : d
  9 : e
-10 : r <-- END
+10 : r <-- END [11]
+
+insert('+', 99):
+ 0 : D
+ 1 : a
+ 2 : r
+ 3 : t
+ 4 : h
+ 5 : ~
+ 6 : V
+ 7 : a
+ 8 : d
+ 9 : e
+10 : r
+11 : + <-- END [12]
+List length = 13
+
+remove('+'):1
+ 0 : D
+ 1 : a
+ 2 : r
+ 3 : t
+ 4 : h
+ 5 : ~
+ 6 : V
+ 7 : a
+ 8 : d
+ 9 : e
+10 : r <-- END [11]
 
 append('#'):
  0 : D
@@ -464,7 +477,7 @@ append('#'):
  8 : d
  9 : e
 10 : r
-11 : # <-- END
+11 : # <-- END [12]
 
 remove(end-1):true
  0 : D
@@ -477,10 +490,9 @@ remove(end-1):true
  7 : a
  8 : d
  9 : e
-10 : r <-- END
+10 : r <-- END [11]
 
-List length = 11
+List length = 13
 List to String: Darth~Vader
-
 
 */
