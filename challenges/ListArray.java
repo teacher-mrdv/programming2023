@@ -123,6 +123,12 @@ public class ListArray
 	public static int remove(char element)
 	{	int count = 0;
 		// your code goes here #4 X2 MARKS
+		int index = indexOf(element);
+		while( index != -1 ) {
+			remove(index);
+			count++;
+			index = indexOf(element);
+		}
 		return count;  // success
 	}
 
@@ -130,6 +136,29 @@ public class ListArray
 	public static void insert(char element, int position)
 	{
 		// your code goes here #5 X3 MARKS
+		if( !isFull() ) { // usFull() == false
+			
+			for(int i = end-1; i >= position; i--) {
+				list[i+1] = list[i];
+			}
+			list[position] = element;
+			end++;
+		} else { // if the array IS FULL
+			char[] bigger = new char[list.length+1];
+			int newIndex = 0;
+			for(int i = 0; i < end; i++) {
+				char temp = list[i];
+				if( i == position ) {
+					newList[newIndex] = element;
+					newIndex++;
+				}
+			}
+			if(position >= end) {
+				newList[end] = element;
+			}
+			list = newList;
+			end++;
+		}
 	}
 
 	public static void resize()
