@@ -5,7 +5,7 @@ public class LinkedListDemo
         LinkedList list = new LinkedList();
         Node addNode = new Node(5);
         list.append(addNode);
-        addNode.data = 3;
+        addNode = new Node(3);
         list.append(addNode);
         list.printLinkedList();
         list.insert(new Node(9), new Node(3)); list.printLinkedList();
@@ -14,37 +14,38 @@ public class LinkedListDemo
         list.insert(new Node(0), new Node(999)); list.printLinkedList();
         Node deleteNode = new Node(3);
         list.delete(deleteNode); list.printLinkedList();
-        deleteNode.data = 5;
+        deleteNode = new Node(5);
         list.delete(deleteNode); list.printLinkedList();
-        deleteNode.data = 0;
+        deleteNode = new Node(0);
         list.delete(deleteNode); list.printLinkedList();
 
-        System.out.println();
+        System.out.println("\nAPPEND");
         LinkedList list2 = new LinkedList();
-        addNode.data = 1;
+        addNode = new Node(1);
         list2.append(addNode);
-        addNode.data = 5;
+        addNode = new Node(5);
         list2.append(addNode);
-        addNode.data = 2;
+        addNode = new Node(2);
         list2.append(addNode);
-        addNode.data = 7;
+        addNode = new Node(7);
         list2.append(addNode);
-        addNode.data = 0;
+        addNode = new Node(0);
         list2.append(addNode);
         list2.printLinkedList();
 
-		deleteNode.data = 1;
+		System.out.println("\nDELETE");
+		deleteNode = new Node(1);
         list2.delete(deleteNode); list2.printLinkedList();
-        deleteNode.data = 2;
+        deleteNode = new Node(2);
         list2.delete(deleteNode); list2.printLinkedList();
-        deleteNode.data = 0;
+        deleteNode = new Node(0);
         list2.delete(deleteNode); list2.printLinkedList();
-
-		/*
-        list2.insertBefore(1,2); list2.printLinkedList();
-        list2.insertAfter(2,2); list2.printLinkedList();
-        list2.delete(1); list2.printLinkedList();
-        */
+        
+        System.out.println("\nINSERT");
+        list2.insertBefore(new Node(1),2); list2.printLinkedList();
+        list2.insertAfter(new Node(2),2); list2.printLinkedList();
+        list2.delete(new Node(1)); list2.printLinkedList();
+        
     }
 }
 
