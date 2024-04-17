@@ -61,6 +61,8 @@ public class Stack2
 		System.out.println("Null");
 	}
 
+	// the following method is less efficient than just
+	// using the size variable
 	public int size()
 	{
 		int counter = 0;
