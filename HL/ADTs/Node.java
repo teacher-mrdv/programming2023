@@ -15,7 +15,7 @@ public class Node
 	int data ; // data contained in our node; it can be any data type
 	Node next; // self-reference (Node refers/links/points to another node)
 
-	// empty constructor (OOP) creates an empty node (defaults)
+	// empty constructor (OOP) creates an empty node (initialises the data and next variables to defaults)
 	public Node() { }
 
 	// custom constructor that creates and initialises a node with data (integer "d" in this example)
