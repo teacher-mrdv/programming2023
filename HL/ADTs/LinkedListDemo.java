@@ -2,9 +2,8 @@ public class LinkedListDemo
 {
     public static void main(String[] args)
     {
-        LinkedList list = new LinkedList();
-        Node addNode = new Node(5);
-        list.append(addNode);
+		Node addNode = new Node(5);
+        LinkedList list = new LinkedList(addNode);
         addNode = new Node(3);
         list.append(addNode);
         list.printLinkedList();
