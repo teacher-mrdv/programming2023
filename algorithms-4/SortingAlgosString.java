@@ -26,20 +26,67 @@ public class SortingAlgosString
 
 	public static void selectionSort(String[] a)
 	{
-		// finish this for class work. Refer to sorting_algos_SL.pdf
+		int c = 0;
+		int currentIndex = 0;
+		// for(int currentIndex = 0; currentIndex < a.length - 1; currentIndex++)
+		while( currentIndex < a.length - 1 )
+		{
+			int smallestIndex = currentIndex;
+			String smallestValue = a[smallestIndex];
+			int checkIndex	  = smallestIndex + 1;
+			while( checkIndex < a.length )
+			{
+				c++;
+				if(a[checkIndex].compareTo(smallestValue) < 0)
+				{
+					smallestIndex = checkIndex;
+					smallestValue = a[checkIndex];
+				}
+				checkIndex++;
+			}
+			a[smallestIndex] = a[currentIndex];
+			a[currentIndex] = smallestValue;
+			currentIndex++;
+			// line below--optional, shows how the array changes with each swap
+			System.out.print("\t"); printArray(a);
+		}
+		System.out.println("Number of comparisons made: " + c);
 	}
 
 	public static void bubbleSort(String[] a)
 	{
-		// finish this for class work. Refer to sorting_algos_SL.pdf
-		
+		// finish this for homework. Refer to sorting_algos_SL.pdf
+		boolean swapped = true;
+		int c = 0; // counting how how many times the sorting algo. works (compares elements inside the array)
+		int sorted = 0; // how many elements we have sorted/bubbled up
+		while (swapped) // we use swapped to check if we have to make any changes (swaps) in the array
+		{
+			swapped = false; // assume no swaps are made
+			for(int i = 0; i < a.length-1-sorted; i++) // go through the unsorted part of the array (a pass)
+			{
+				c++;
+				if(a[i].compareTo(a[i+1]) > 0) // if the elements are not in order (ascending)
+				{
+					String temp = a[i]; // swap the two elements
+					a[i]=a[i+1];
+					a[i+1]=temp;
+					swapped=true; // and keep track of the fact that we've done a swap
+				}
+				System.out.print("\t>>> i=" + i + " "); printArray(a); // optional, shows how the array changes with each swap
+			}
+			sorted++; // after each pass, one more element will be sorted
+			//System.out.print("\t"); printArray(a); // optional, shows how the array changes with each pass
+		}
+		System.out.println("Number of comparisons made: " + c);
 	}
-
+	
+	// for later use
 	public static void bubbleSort2(String[] a)
 	{
 		
 	}
 	
+	// for later use
 	public static void bubbleSort3(String[] a)
 	{
 		
