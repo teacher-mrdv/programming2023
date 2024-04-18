@@ -65,10 +65,10 @@ public class LinkedList
             return null;
         }
         Node temp = start;
-        Node deletedData = null;
+        Node deleted = null;
         int counter = 0;
         // your code here to delete the node at position 'place' - think index
-        return deletedData;
+        return deleted;
     }
 
     private void insertAt(Node n, int place)
