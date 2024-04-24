@@ -31,12 +31,22 @@ public class LinkedList
 
     public boolean isEmpty()
     {
-        // your code here
+        return start == null;
     }
 
     public void append(Node n)
     {
-        // your code here
+        if( isEmpty() ) {
+			start = n;
+		} else {
+			Node temp = start;
+			while( temp.next != null ) // !temp.hasNext()
+			{
+				temp = temp.next;
+			}
+			temp.next = n;
+			size++;
+		}
     }
 
 	// returns true if the deletion was successful, false otherwise
@@ -53,7 +63,17 @@ public class LinkedList
             size--;
             return true;
         }
-        // your code here to delete any other node after the first/start one
+        Node previous = start;
+        Node current = start.next;
+        while( current != null ) {
+			if( current.data == nodeToDelete.data ) {
+				previous.next = current.next;
+				size--;
+				return true;
+			}
+			previous = previous.next;
+			current = current.next;
+		}
         return false;
     }
 
@@ -110,4 +130,22 @@ public class LinkedList
         size++;
     }
 
+	public static void main(String[] args)
+	{
+		Node add = new Node(5);
+		LinkedList l = new LinkedList(add);
+		l.printLinkedList();
+		add = new Node(3);
+		l.append(add);
+		l.printLinkedList();
+		add = new Node(1);
+		l.append(add);
+		l.printLinkedList();
+		add = new Node(7);
+		l.append(add);
+		l.printLinkedList();
+		add = new Node(9);
+		l.append(add);
+		l.printLinkedList();
+	}
 }
