@@ -83,13 +83,46 @@ public class SortingAlgosString
 	// for later use
 	public static void bubbleSort2(String[] a)
 	{
-		
+		int c = 0; // counting how how many times the sorting algo. works (compares elements inside the array)
+		int sorted = 0; // how many elements we have sorted/bubbled up
+		for(int j = 0; j < a.length; j++)
+		{
+			for(int i = 0; i < a.length-1-sorted; i++) // go through the unsorted part of the array (a pass)
+			{
+				c++;
+				if(a[i].compareTo(a[i+1]) > 0) // if the elements are not in order (ascending)
+				{
+					String temp = a[i]; // swap the two elements
+					a[i]=a[i+1];
+					a[i+1]=temp;
+				}
+				System.out.print("\t>>> i=" + i + " "); printArray(a); // optional, shows how the array changes with each swap
+			}
+			sorted++; // after each pass, one more element will be sorted
+			//System.out.print("\t"); printArray(a); // optional, shows how the array changes with each pass
+		}
+		System.out.println("Number of comparisons made: " + c);
 	}
 	
-	// for later use
 	public static void bubbleSort3(String[] a)
 	{
-		
+		int c = 0; // counting how how many times the sorting algo. works (compares elements inside the array)
+		for(int i = 0; i < a.length; i++)
+		{
+			for(int j = 0; j < a.length-1; j++) // go through the unsorted part of the array (a pass)
+			{
+				c++;
+				if(a[j].compareTo(a[j+1]) > 0) // if the elements are not in order (ascending)
+				{
+					String temp = a[j]; // swap the two elements
+					a[j]=a[j+1];
+					a[j+1]=temp;
+				}
+				System.out.print("\t>>> j=" + j + " "); printArray(a); // optional, shows how the array changes with each swap
+			}
+			//System.out.print("\t"); printArray(a); // optional, shows how the array changes with each pass
+		}
+		System.out.println("Number of comparisons made: " + c);
 	}
 
 	// a couple of ways to visualise the insertion sort:
@@ -139,7 +172,7 @@ public class SortingAlgosString
 		bubbleSort(bubble);
 		System.out.println("\nFinal result:");
 		printArray(bubble);
-		/*
+		
 		System.out.println("\nOriginal array:");
 		printArray(original);
 		System.out.println("\nBubble2 (partially optimised) sort:");
@@ -154,7 +187,7 @@ public class SortingAlgosString
 		printArray(bubble3);
 		System.out.println("\nOriginal array:");
 		printArray(original);
-		*/
+		
 		System.out.println("\nInsertion sort:");
 		insertionSort(insert);
 		System.out.println("\nFinal result:");
