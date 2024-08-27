@@ -25,9 +25,31 @@ public class Shape {
         return name;
     }
 
-    // modifier - allows us to WRITE/modify the attribute
+    // modifier/mutator - allows us to WRITE/modify the attribute
     public void setName(String name) {
         this.name = name;
     }
 
+    public double getPerimeter() {
+        return perimeter;
+    }
+
+    public void setPerimeter(double perimeter) {
+        this.perimeter = perimeter;
+    }
+
+    public double getArea() {
+        return area;
+    }
+
+    public void setArea(double area) {
+        this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "Shape name='" + name + '\'' +
+                ", perimeter=" + perimeter +
+                ", area=" + area;
+    }
 }
