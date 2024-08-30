@@ -4,6 +4,8 @@ public class Square extends Shape {
     public Square(String name, double side) {
         super(name);
         this.side = side;
+        this.setPerimeter(this.side * 4);
+        this.setArea(this.side * this.side);
     }
 
     public double getSide() {
@@ -13,6 +15,8 @@ public class Square extends Shape {
     public void setSide(double side) {
         this.side = side;
     }
+
+
 
 
 }
