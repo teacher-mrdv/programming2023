@@ -6,20 +6,15 @@
  */
 public class Shape {
     private String name;
-    private double perimeter;
-    private double area;
 
+    // empty constructor
+    public Shape() {
+        this.name = "Shape";
+    }
+    // overloaded constructor
     public Shape(String name) {
         this.name = name;
     }
-
-    // overloaded constructor
-    public Shape(String name, double perimeter, double area) {
-        this.name = name;
-        this.perimeter = perimeter;
-        this.area = area;
-    }
-
     // accessor - allows us to READ the attribute
     public String getName() {
         return name;
@@ -30,26 +25,9 @@ public class Shape {
         this.name = name;
     }
 
-    public double getPerimeter() {
-        return perimeter;
-    }
-
-    public void setPerimeter(double perimeter) {
-        this.perimeter = perimeter;
-    }
-
-    public double getArea() {
-        return area;
-    }
-
-    public void setArea(double area) {
-        this.area = area;
-    }
-
     @Override
     public String toString() {
-        return "Shape name='" + name + '\'' +
-                ", perimeter=" + perimeter +
-                ", area=" + area;
+        return "Shape name: " + name +
+                " | Shape class: " + this.getClass().getName();
     }
 }
