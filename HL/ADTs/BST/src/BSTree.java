@@ -6,6 +6,7 @@ public class BSTree {
     public BSTree(int data) {
         BNode newNode = new BNode(data);
         root = newNode;
+        System.out.println("--> Inserted " + data + " as the root");
     }
 
     public BSTree(BNode newNode) {
@@ -25,13 +26,29 @@ public class BSTree {
     }
 
     public void addNode(BNode node, BNode newNode) {
-        if( node == null ) {
-            node = newNode;
-            return;
-        } else if(newNode.data < node.data) {
-            addNode(node.left, newNode);
+        if(newNode.data < node.data) {
+            if(node.left != null) {
+                addNode(node.left, newNode);
+            } else {
+                System.out.println("--> Inserted " + newNode.data +
+                        " to the left of " + node.data);
+                node.left = newNode;
+            }
         } else if(newNode.data > node.data) {
-            addNode(node.right, newNode);
+            if(node.right != null) {
+                addNode(node.right, newNode);
+            } else {
+                System.out.println("--> Inserted " + newNode.data +
+                        " to the right of " + node.data);
+                node.right = newNode;
+            }
         }
     }
+
+    public boolean search(int data) {
+
+        return false;
+    }
+
+
 }
