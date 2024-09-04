@@ -53,7 +53,7 @@ public class BSTree {
         }
     }
 
-    public boolean search(int data) {
+    public boolean search(BNode node, int data) {
 
         return false;
     }
