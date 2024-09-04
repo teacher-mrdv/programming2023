@@ -16,9 +16,10 @@ public class BSTree {
     public boolean isEmpty() {
         return root == null;
     }
+
     public void addNode(int data) {
         BNode newBNode = new BNode(data);
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             addNode(root, newBNode);
         } else {
             root = newBNode;
@@ -26,7 +27,7 @@ public class BSTree {
     }
 
     public void addNode(BNode newBNode) {
-        if(!isEmpty()) {
+        if (!isEmpty()) {
             addNode(root, newBNode);
         } else {
             root = newBNode;
@@ -34,16 +35,16 @@ public class BSTree {
     }
 
     public void addNode(BNode node, BNode newNode) {
-        if(newNode.data < node.data) {
-            if(node.left != null) {
+        if (newNode.data < node.data) {
+            if (node.left != null) {
                 addNode(node.left, newNode);
             } else {
                 System.out.println("--> Inserted " + newNode.data +
                         " to the left of " + node.data);
                 node.left = newNode;
             }
-        } else if(newNode.data > node.data) {
-            if(node.right != null) {
+        } else if (newNode.data > node.data) {
+            if (node.right != null) {
                 addNode(node.right, newNode);
             } else {
                 System.out.println("--> Inserted " + newNode.data +
@@ -53,10 +54,21 @@ public class BSTree {
         }
     }
 
-    public boolean search(BNode node, int key) {
-
-        return false;
+    public boolean search(int key) {
+        if (!isEmpty()) {
+            return search(root, key);
+        } else {
+            return false;
+        }
     }
 
-
+    public boolean search(BNode node, int key) {
+        if (node == null) {
+            return false;
+        }
+        if (node.data == key) {
+            return true;
+        // complete this search method...
+    }
 }
+

@@ -5,6 +5,8 @@ public class BSTTest {
         myBST.addNode(6);
         myBST.addNode(4);
         myBST.addNode(2);
-        myBST.inOrder();
+        //myBST.inOrder();
+        System.out.println(myBST.search(6));
+        System.out.println(myBST.search(9));
     }
 }
