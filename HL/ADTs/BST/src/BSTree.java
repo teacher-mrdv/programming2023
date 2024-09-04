@@ -18,11 +18,19 @@ public class BSTree {
     }
     public void addNode(int data) {
         BNode newBNode = new BNode(data);
-        addNode(root, newBNode);
+        if(!isEmpty()) {
+            addNode(root, newBNode);
+        } else {
+            root = newBNode;
+        }
     }
 
     public void addNode(BNode newBNode) {
-        addNode(root, newBNode);
+        if(!isEmpty()) {
+            addNode(root, newBNode);
+        } else {
+            root = newBNode;
+        }
     }
 
     public void addNode(BNode node, BNode newNode) {
