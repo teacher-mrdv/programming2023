@@ -32,7 +32,8 @@ public class BSTree {
             addNode(root, newBNode);
         } else {
             root = newBNode;
-            System.out.println("--> Inserted " + data + " as the root");
+            System.out.println("--> Inserted " + newBNode.data + " as the " +
+                    "root");
         }
     }
 
