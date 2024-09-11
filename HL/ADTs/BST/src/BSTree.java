@@ -23,6 +23,7 @@ public class BSTree {
             addNode(root, newBNode);
         } else {
             root = newBNode;
+            System.out.println("--> Inserted " + data + " as the root");
         }
     }
 
@@ -31,6 +32,7 @@ public class BSTree {
             addNode(root, newBNode);
         } else {
             root = newBNode;
+            System.out.println("--> Inserted " + data + " as the root");
         }
     }
 
@@ -68,7 +70,11 @@ public class BSTree {
         }
         if (node.data == key) {
             return true;
-        // complete this search method...
+        } else if (key > node.data) {
+            return search(node.right, key);
+        } else {//if (key < node.data) {
+            return search(node.left, key);
+        }
     }
 }
 
