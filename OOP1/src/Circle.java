@@ -22,12 +22,13 @@ public class Circle extends Shape {
         return Math.PI * radius * radius;
     }
 
-    public double getPermeter() {
+    public double getPerimeter() {
         return Math.PI * radius * radius;
     }
 
     public String toString() {
-        return super.toString() + " radius = " + radius;
+        return super.toString() + " radius = " + radius +
+        " perimeter = " + getPerimeter() + " area = " + getArea();
     }
 
 }

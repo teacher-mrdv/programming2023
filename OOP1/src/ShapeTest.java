@@ -8,6 +8,8 @@ public class ShapeTest {
         System.out.print(cuadrado.getName());
         System.out.println(" | Perimeter = " + cuadrado.getPerimeter());
         System.out.println(cuadrado);
-
+        System.out.println();
+        Circle o = new Circle("O", 5);
+        System.out.println(o);
     }
 }
