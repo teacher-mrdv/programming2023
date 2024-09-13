@@ -1,10 +1,10 @@
 /*
  * Class to model a 2D geometrical shape
  * class name
- * attrbutes / instance variable / field
+ * attributes / instance variable / field
  * constructor
  */
-public class Shape {
+public abstract class Shape {
     private String name;
 
     // empty constructor
@@ -25,6 +25,8 @@ public class Shape {
         this.name = name;
     }
 
+    abstract public double getPerimeter();
+    abstract public double getArea();
     @Override
     public String toString() {
         return "Shape name: " + name +
