@@ -77,5 +77,23 @@ public class BSTree {
             return search(node.left, key);
         }
     }
+
+    public void inOrder() {
+        if(isEmpty()) {
+            System.out.println("Tree is empty");
+        } else {
+            inOrder(root);
+        }
+    }
+
+    public void inOrder(BNode node) {
+        if(node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.println(node.data);
+        inOrder(node.right);
+    }
+
 }
 
