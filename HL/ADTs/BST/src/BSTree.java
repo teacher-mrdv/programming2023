@@ -91,7 +91,7 @@ public class BSTree {
             return;
         }
         inOrder(node.left);
-        System.out.println(node.data);
+        System.out.print(node.data + " ");
         inOrder(node.right);
     }
 
