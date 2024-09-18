@@ -21,7 +21,7 @@ public class Test {
 
         Dog fido = new Dog("Fido", 2020, "Terrier");
         System.out.println(fido);
-        boots.setBreed("bulldog");
+        fido.setBreed("bulldog");
         System.out.println(boots.getBreed());
         fido.talk();
         fido.eat();

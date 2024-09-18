@@ -8,7 +8,7 @@ public class Animal
     public Animal() {
         this.name = "animalito";
         Date now = new Date();
-        this.yob = now.getYear();
+        this.yob = 1900 + now.getYear();
     }
 
     public Animal(String name) {
