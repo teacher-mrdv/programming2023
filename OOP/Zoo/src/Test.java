@@ -2,6 +2,7 @@ public class Test {
     public static void main(String[] args) {
         // NEW calls the constructor and instantiates ahMeng
         // the parameters initialise the object's (ahMeng's) attributes
+        System.out.println("Animal Superclass");
         Animal ahMeng = new Animal("Ah Meng");
         System.out.println(ahMeng); // default output: Animal@75bd9247
         System.out.println(ahMeng.getName() + " was born " + ahMeng.getYob());
@@ -9,24 +10,21 @@ public class Test {
         System.out.printf( "Name: %-10s | Birth Year: %4d\n", ahMeng.getName(), ahMeng.getYob() );
         ahMeng.talk();
         ahMeng.eat();
-
-        /* delete comment symbols and test
-
+        System.out.println("\nCAT");
         Cat boots = new Cat("Pib", 2018, "long");
         System.out.println(boots);
         boots.setCoat("short");
         System.out.println(boots.getCoat());
         boots.talk();
         boots.eat();
-
+        System.out.println("\nDOG");
         Dog fido = new Dog("Fido", 2020, "Terrier");
         System.out.println(fido);
         fido.setBreed("bulldog");
-        System.out.println(boots.getBreed());
+        System.out.println(fido.getBreed());
         fido.talk();
         fido.eat();
 
-        */
     }
 }
 
