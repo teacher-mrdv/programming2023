@@ -47,7 +47,9 @@ public class Zoo {
             System.out.println("Invalid index");
             return;
         }
-        animals[index] = animal;
+        if(animals[index] == null) {
+            animals[index] = animal;
+        }
     }
 
     public int getPopulation() {
@@ -59,6 +61,25 @@ public class Zoo {
         }
         return population;
     }
+
+    public void addAnimal(Animal animal) {
+        for(int i = 0; i < animals.length; i++) {
+            if(animals[i] == null) {
+                animals[i] = animal;
+            }
+        }
+    }
+
+    public Animal removeAnimal(int index) {
+        if(index < 0 || index >= animals.length) {
+            System.out.println("Invalid index");
+            return null;
+        }
+        Animal deleted = animals[index];
+        animals[index] = null;
+        return deleted;
+    }
+
     public String toString() {
         String output = "Zoo name: " + name + "\n";
         for(int i = 0; i < animals.length; i++) {
