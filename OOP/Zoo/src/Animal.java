@@ -7,7 +7,9 @@ public class Animal
 
     public Animal() {
         this.name = "animalito";
-        Date now = new Date();
+        Date now = new Date(); // gets current datestamp
+        // dependency: uses-a
+        // Animal uses Date to get the current data/year
         this.yob = 1900 + now.getYear();
     }
 
