@@ -13,9 +13,9 @@ public class BSTTest {
         // traversals
         myBST.inOrder();
         System.out.println();
-        //myBST.preOrder();
+        myBST.preOrder();
         System.out.println();
-        //myBST.postOrder();
+        myBST.postOrder();
         System.out.println();
     }
 }

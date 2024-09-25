@@ -112,8 +112,8 @@ public class BSTree {
         if(node == null) {
             return;
         }
+        System.out.print(node.data + " "); // visit
         preOrder(node.left);
-        System.out.print(node.data + " ");
         preOrder(node.right);
     }
 
@@ -125,13 +125,14 @@ public class BSTree {
         }
     }
 
+    // L R V
     public void postOrder(BNode node) {
         if(node == null) {
             return;
         }
         postOrder(node.left);
-        System.out.print(node.data + " ");
         postOrder(node.right);
+        System.out.print(node.data + " ");
     }
 
 }
