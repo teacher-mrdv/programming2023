@@ -78,6 +78,9 @@ public class BSTree {
         }
     }
 
+    // overloading the inOrder method so that we can
+    // call it without parameters and output an error
+    // message if the tree is empty
     public void inOrder() {
         if(isEmpty()) {
             System.out.println("Tree is empty");
@@ -86,6 +89,7 @@ public class BSTree {
         }
     }
 
+    // Left_Visit_Right
     public void inOrder(BNode node) {
         if(node == null) {
             return;
@@ -93,6 +97,41 @@ public class BSTree {
         inOrder(node.left);
         System.out.print(node.data + " ");
         inOrder(node.right);
+    }
+
+    public void preOrder() {
+        if(isEmpty()) {
+            System.out.println("Tree is empty");
+        } else {
+            preOrder(root);
+        }
+    }
+
+    // V L R
+    public void preOrder(BNode node) {
+        if(node == null) {
+            return;
+        }
+        preOrder(node.left);
+        System.out.print(node.data + " ");
+        preOrder(node.right);
+    }
+
+    public void postOrder() {
+        if(isEmpty()) {
+            System.out.println("Tree is empty");
+        } else {
+            postOrder(root);
+        }
+    }
+
+    public void postOrder(BNode node) {
+        if(node == null) {
+            return;
+        }
+        postOrder(node.left);
+        System.out.print(node.data + " ");
+        postOrder(node.right);
     }
 
 }
