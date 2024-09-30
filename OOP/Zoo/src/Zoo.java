@@ -66,6 +66,7 @@ public class Zoo {
         for(int i = 0; i < animals.length; i++) {
             if(animals[i] == null) {
                 animals[i] = animal;
+                break;
             }
         }
     }
@@ -84,9 +85,11 @@ public class Zoo {
         String output = "Zoo name: " + name + "\n";
         for(int i = 0; i < animals.length; i++) {
             if(animals[i] != null) {
-                output = output + animals[i];
+                output = output + animals[i] + "\n";
             }
         }
+        output = output + "Population of the zoo " + getName() +
+                " = " + getPopulation() + "\n";
         return output;
     }
 
