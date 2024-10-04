@@ -24,7 +24,7 @@ public class Test {
         System.out.println(fido.getBreed());
         fido.talk();
         fido.eat();
-
+        System.out.println(Animal.animalCounter);
     }
 }
 
