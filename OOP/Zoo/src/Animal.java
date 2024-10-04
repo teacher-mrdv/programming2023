@@ -1,5 +1,4 @@
 import java.util.Date;
-
 public class Animal
 {
     private String name;
