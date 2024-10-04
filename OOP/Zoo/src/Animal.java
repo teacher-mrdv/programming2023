@@ -51,7 +51,7 @@ public class Animal
         System.out.println("All animals eat... something");
     }
 
-	public static int geAnimalCounter() {
+	public static int getAnimalCounter() {
 		return animalCounter;
 	}
 
