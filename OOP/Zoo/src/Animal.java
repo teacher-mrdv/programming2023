@@ -4,7 +4,7 @@ public class Animal
 {
     private String name;
     private int yob; // year of birth
-    public static int animalCounter = 0;
+    private static int animalCounter = 0;
 
     public Animal() {
         this.name = "animalito";
@@ -51,6 +51,10 @@ public class Animal
     public void eat() {
         System.out.println("All animals eat... something");
     }
+
+	public static int geAnimalCounter() {
+		return animalCounter;
+	}
 
     @Override
     public String toString() {
