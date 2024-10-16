@@ -1,5 +1,5 @@
 //
-// Chapter 11, plus some extra practice for our OOP test
+// Chapter 11, plus some extra practice -> OOP skills
 //
 public class Fraction
 {
@@ -69,7 +69,6 @@ public class Fraction
         this.denominator = denominator;
     }
 
-    //  Practice for the test: write the add, equals and compareTo methods
     public Fraction add(Fraction second)
     {
         int sumNum = this.numerator * second.denominator + second.numerator * this.denominator;
