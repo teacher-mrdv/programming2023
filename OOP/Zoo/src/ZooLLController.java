@@ -19,7 +19,6 @@ public class ZooLLController {
                 pup.hashCode() + " : " +
                 (cujo.hashCode() == pup.hashCode()));
 
-
         System.out.println(sgZoo);
         System.out.println(myZoo);
         cujo.setName("Bob");
