@@ -1,11 +1,16 @@
+import java.util.Date;
+import java.util.Scanner;
+
 public class Time
 {
     private int hours;
     private int minutes;
 
     public Time()
-    {   this.hours = 0;
-        this.minutes = 0;
+    {   
+        Date now = new Date();
+        this.hours = now.getHours();
+        this.minutes = now.getMinutes();
     }
     
     public Time(int m)
@@ -18,6 +23,49 @@ public class Time
         this.setMinutes(m);
     }
     
+    public Time(String timeString) throws Exception{
+        int h = 0, m = 0;
+        timeString = timeString.replace(':', ' ');
+        Scanner scanner = new Scanner(timeString);
+        try
+        {
+            h = scanner.nextInt();
+            m = scanner.nextInt();
+            scanner.close();
+        } catch (Exception e)
+        {
+            throw new Exception("Invalid time format");
+        }
+        if (isValidTime(h, m))
+        {
+            this.hours = h;
+            this.minutes = m;
+        } else
+        {
+            throw new Exception("Invalid time");
+        }
+    }
+
+    public static boolean isValidTime(int h, int m) {
+        return ((h >= 0) && (h <= 23) && (m >= 0) && (m <= 59));
+    }
+
+    public static boolean isValidTime(String timeString) throws Exception {
+        int h = 0, m = 0;
+        timeString = timeString.replace(':', ' ');
+        Scanner scanner = new Scanner(timeString);
+        try
+        {
+            h = scanner.nextInt();
+            m = scanner.nextInt();
+            scanner.close();
+        } catch (Exception e)
+        {
+            throw new Exception("Invalid time format");
+        }
+        return isValidTime(h, m);
+    }
+
     public int getHours()
     {   return this.hours;
     }
