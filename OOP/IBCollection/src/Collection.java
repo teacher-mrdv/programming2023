@@ -15,14 +15,16 @@ public class Collection
 	
 	public void addItem(String data)
 	// can also be a number, object, array, etc. instead of String
-	{
-		Element newElement = new Element(data);
+	{	Element newElement = new Element(data);
 		if( isEmpty() ) // add first element
 		{	start = newElement;
 			current = start;
 		} else {
+			resetNext();
+			while(current.hasNext())
+			{	current = current.getNext();
+			}
 			current.setNext(newElement);
-			current = current.getNext();
 		}
 	}
 	
@@ -39,7 +41,7 @@ public class Collection
 	public String toString()
 	{	String output = "";
 		this.resetNext();
-		while( current.hasNext() );
+		while( current.next != null )
 		{	output = output + this.getNext() + " ";
 		}
 		return output;
