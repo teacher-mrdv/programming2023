@@ -41,7 +41,7 @@ public class Collection
 	public String toString()
 	{	String output = "";
 		this.resetNext();
-		while( current.next != null )
+		while( current != null )
 		{	output = output + this.getNext() + " ";
 		}
 		return output;
