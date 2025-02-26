@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/HL/HL.iml" filepath="$PROJECT_DIR$/HL/HL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mocks/mocks.iml" filepath="$PROJECT_DIR$/mocks/mocks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/programming2023.iml" filepath="$PROJECT_DIR$/programming2023.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HL/recursion/recursion.iml" filepath="$PROJECT_DIR$/HL/recursion/recursion.iml" />
+    </modules>
+  </component>
+</project>
