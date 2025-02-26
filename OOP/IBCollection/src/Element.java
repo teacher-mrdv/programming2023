@@ -5,7 +5,7 @@
 public class Element
 {
 	private String data; // can also be a number, object, array, etc.
-	Element next;
+	private Element next;
 	
 	public Element() { }
 	

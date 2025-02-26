@@ -1,8 +1,8 @@
 
 public class Collection
 {
-	Element start;
-	Element current;
+	private Element start;
+	private Element current;
 	
 	public Collection()
 	{	this.start = null;
@@ -12,7 +12,24 @@ public class Collection
 	public boolean isEmpty()
 	{	return start == null;
 	}
-	
+
+
+	public Element getStart() {
+		return start;
+	}
+
+	public void setStart(Element start) {
+		this.start = start;
+	}
+
+	public Element getCurrent() {
+		return current;
+	}
+
+	public void setCurrent(Element current) {
+		this.current = current;
+	}
+
 	public void addItem(String data)
 	// can also be a number, object, array, etc. instead of String
 	{	Element newElement = new Element(data);
@@ -33,7 +50,7 @@ public class Collection
 		current = current.getNext();
 		return data;
 	}
-	
+
 	public void resetNext()
 	{	current = start;
 	}
