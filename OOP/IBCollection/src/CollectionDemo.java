@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class CollectionDemo
 {
 	// how to calculate the size of a collection outside the Collection class
@@ -30,6 +33,12 @@ public class CollectionDemo
 		System.out.print("list.size() = ");
 		System.out.println(list.size());
 
+		String[] names = new String[collectionSize(list)];
+		list.resetNext();
+		for(int i = 0; i < collectionSize(list); i++)
+		{	names[i] = list.getNext();
+		}
+		System.out.println(Arrays.toString(names));
 	}
 }
 
