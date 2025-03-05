@@ -1,15 +1,18 @@
 /*
+ * Item, Element or Node of the Collection
+ * This is the data type of the collection,
+ * i.e. what the Collection is made of.
  */
 
 
-public class Element
+public class Item
 {
 	private String data; // can also be a number, object, array, etc.
-	private Element next;
+	private Item next;
 	
-	public Element() { }
+	public Item() { }
 	
-	public Element(String data)
+	public Item(String data)
 	{	this.data = data;
 		this.next = null;
 	}
@@ -18,7 +21,7 @@ public class Element
 	{	return this.next != null;
 	}
 	
-	public Element getNext()
+	public Item getNext()
 	{	return this.next;
 	}
 	
@@ -26,7 +29,7 @@ public class Element
 	{	return this.data;
 	}
 	
-	public void setNext(Element next)
+	public void setNext(Item next)
 	{	this.next = next;
 	}
 	

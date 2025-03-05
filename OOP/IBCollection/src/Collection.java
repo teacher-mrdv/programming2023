@@ -5,8 +5,8 @@
  ************************************************************/
 public class Collection
 {
-	private Element start;
-	private Element current;
+	private Item start;
+	private Item current;
 	
 	public Collection()
 	{	this.start = null;
@@ -17,34 +17,34 @@ public class Collection
 	{	return start == null;
 	}
 
-	public Element getStart() {
+	public Item getStart() {
 		return start;
 	}
 
-	public void setStart(Element start) {
+	public void setStart(Item start) {
 		this.start = start;
 	}
 
-	public Element getCurrent() {
+	public Item getCurrent() {
 		return current;
 	}
 
-	public void setCurrent(Element current) {
+	public void setCurrent(Item current) {
 		this.current = current;
 	}
 
 	public void addItem(String data)
 	// can also be a number, object, array, etc. instead of String
-	{	Element newElement = new Element(data);
+	{	Item newItem = new Item(data);
 		if( isEmpty() ) // add first element
-		{	start = newElement;
+		{	start = newItem;
 			current = start;
 		} else {
 			this.resetNext();
 			while(current.hasNext())
 			{	current = current.getNext();
 			}
-			current.setNext(newElement);
+			current.setNext(newItem);
 		}
 	}
 	
@@ -58,6 +58,9 @@ public class Collection
 	{	current = start;
 	}
 
+	public boolean hasNext()
+	{	return current.hasNext();
+	}
 	/*
 	calculate the size of the collection from within the Collection class,
 	which is not normally an exam question
