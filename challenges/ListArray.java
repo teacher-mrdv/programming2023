@@ -3,30 +3,34 @@
  * ORDERED ARRAYS
  * We will work on this challenge during the following practical programming periods.
  *
- * Study the methods given in the ListArray class. These are meant to implement the basic operations of a list using arrays. Note the indexOf method, which is a linear search returning the (first) index of a matching element character in the array.
- * Complete the listToString, including all three replace methods and the insert method. The resize method is optional and meant to "shrink" a partially filled array so that the length and the size/population/end are the same (no empty indexes).
+ * Study the methods given in the ListArray class. These are meant to implement the basic operations of a list using arrays.
+ * Note the indexOf method, which is a linear search returning the (first) index of a matching element (character) in the array.
+ ************************************************************
+ * Complete the unfinished methods. The resize method is optional and meant to "shrink" a partially filled array
+ * so that the length and the size/population/end are the same (no empty indexes).
  *
  * Bring your questions to our problem-solving and coding classes.
  * Note: The **end** global variable may also be named currentSize, lastIndex, population, or arrayPopulation.
  */
 public class ListArray
 {
-	// DO NOT MODIFY THE FIRST 18 LINES LINES OF THIS CLASS, OR THE MAIN METHOD
 
-	public static char[] list = new char[10];
+	public static char[] list = new char[5];
 	public static int end = 0; // to keep track of the end of the list
 
-    public static boolean isEmpty() {
-        return end == 0;
+    public static boolean isEmpty()
+    {	return end == 0;
     }
 
-    public static boolean isFull() {
-        return end == list.length;
+    public static boolean isFull()
+    {    return end == list.length;
     }
 
-    public static void append(char element) {
-        if (isFull() == true) {
-            char[] newList = new char[list.length + 1];
+    public static void append(char element)
+    {
+        if (isFull() == true)
+        {
+            char[] newList = new char[list.length + 1]; // 1 or more
             for (int i = 0; i < end; i++) {
                 newList[i] = list[i];
             }
@@ -38,104 +42,153 @@ public class ListArray
         end = end + 1;
     }
 
-    public static int indexOf(char element) {
-        for (int i = 0; i < end; i++) {
-            if (element == list[i]) {
+	// a simple linear search returning the FIRST occurrence of 'element'
+    public static int indexOf(char element)
+    {
+        for (int i = 0; i < end; i++)
+        {
+            if (element == list[i])
+            {
                 return i;
             }
         }
         return -1;
     }
 
-    public static void printList() {
-        for (int i = 0; i < end; i++) {
+    public static void printList()
+    {
+        for (int i = 0; i < end; i++)
+        {
             System.out.printf("%2d : %c", i, list[i]);
-            if (i == end - 1) {
+            if (i == end - 1)
+            {
                 System.out.println(" <-- END [" + end + "]");
-            } else {
+            } else
+            {
                 System.out.println();
             }
         }
     }
-
-    // converts list to a String
-    public static String listToString() {
-        String output = "";
-        if (list != null) {
-            for (int i = 0; i < end; i++) {
-                output = output + list[i];
-            }
-        }
-        return output;
+    // Complete the methods below this line //
+    
+    // swaps the elements at index1 and index2; returns true if successful, false if unsuccessful
+    public boolean swap(int index1, int index2)
+    {
+		// validate and run checks!
+		// no point swapping if the indices are the same!
+		if( index1 == index2 )
+		{	return false;
+		}
+		// no point swapping two indices if the contents are the same...
+		if( list[index1] == list[index2] )
+		{	return false;
+		}
+		// cannot swap if any index is outside bounds (of populated array)
+		if(index1 < 0 || index1 >= end ||
+		   index2 < 0 || index2 >= end )
+		{	return false;
+		}
+		char temp = list[index1];
+		list[index1] = list[index2];
+		list[index2] = temp;
+		return true;
     }
 
-    public static boolean replace(int index, char repl) {
-        if (index < 0 || index > list.length) {
-            return false;
-        } else {
-            list[index] = repl;
-            return true;
-        }
+    // converts list to a String, similar to Arrays.toString(array)
+    public static String listToString()
+    {
+		String output = ""; // we must initialise the String
+		if( !isEmpty() )
+		{
+			for(int i = 0; i < end; i++)
+			{	output = output + list[i];
+			}
+		}
+		return output;
     }
 
-    public static int replace(char orig, char repl) {
-        int count = 0; // count replacements made
-        // your code goes here #2 X2
-        int start = indexOf(orig);
-        if (start != -1) {
-            // 1 mark for traversing the array
-            for (int i = start; i < end; i++) {
-                // 1 mark for replacing the characters
-                if (list[i] == orig) {
-                    list[i] = repl; // OR replace(i, repl);
-                    count++;
-                }
-            }
-        }
-        return count;
+	// replace a character at 'index' with 'replacement'; returns true if successful, false if unsuccessful
+    public static boolean replace(int index, char replacement)
+    {
+		if(index < 0 || index >= end )
+		{	return false;
+		}
+		list[index] = replacement;
+		return true;
+    }
+
+	// replace all occurences of 'original' character with 'replacement; returns the number of replacements made (0 if nothing replaced)
+    /*public static int replace(char original, char replacement)
+    {	int count = 0; // count replacements made
+		int index = indexOf(original); // check if char to replace is in list or not
+		if(index != -1)
+		{	for(int i = 0; i < end; i++)
+			{	if(list[i] == original)
+				{	list[i] = replacement;
+					count++;
+				}
+			}
+		}
+		return count;
+    }*/
+    
+    public static int replace(char original, char replacement)
+    {	int count = 0; // count replacements made
+		int index = indexOf(original); // check if char to replace is in list or not
+		while(index != -1)
+		{	list[index] = replacement;
+			count++;
+			index = indexOf(original); // check for another occurrence
+		}
+		return count;
     }
 
     // create a method to remove directly by INDEX
-    public static boolean remove(int index) {    // range check for index
-
-        if (index < 0 || index >= list.length) {
+    public static boolean remove(int index)
+    {
+        if (index < 0 || index >= end)
+        {
             return false;
-        } else
-        // are we removing the last one?
-        if (index >= (end - 1)) {
-            end--;
-            return true;
-        } else {
-            // move the array contents "one index up"
-            for (int i = index; i < end - 1; i++) {
-                list[i] = list[i + 1];
-            }
-            end--;
-            return true;  // success
         }
+        // are we removing the last one?
+        if (index >= (end - 1))
+        {	end--;
+			resize();
+            return true;
+        }
+		// move the array contents "one index up"
+		for (int i = index; i < end - 1; i++)
+		{
+			list[i] = list[i + 1];
+		}
+		end--;
+		resize();
+		return true;  // success
     }
 
-    public static int remove(char element) {
+    public static int remove(char element)
+    {
         int count = 0;
-        int index = indexOf(element);
-        while (index != -1) {
-            //System.out.println(index);
-            remove(index);
-            count++;
-            index = indexOf(element);
-        }
-        return count;  // success
+		int removeIndex = indexOf(element);
+		while(removeIndex != -1)
+		{	remove(removeIndex);
+			count++;
+			removeIndex = indexOf(element);
+		} 
+		resize();
+		return count;  // success
     }
 
     // create a method to insert an element AT an index of the list
     public static void insert(char element, int position) {
-        if (position >= end) { // insert at/past end
+        if (position >= end)
+        { // insert at/past end
             append(element);
             return;
         }
         if (!isFull()) { // if array's not full...
-            for (int i = end - 1; i >= position; i--) {
-                list[i + 1] = list[i];
+            for (int i = end - 1; i >= position; i--)
+            {	list[i + 1] = list[i];
             }
             list[position] = element;
             end++;
@@ -157,31 +210,20 @@ public class ListArray
         }
     }
 
-    public static void resize() {    // Writing this method may help you with the extra challenge
+	// removes any empty slots in the array
+    public static void resize()
+    {
         char[] newList = new char[end];
-        for (int i = 0; i < end; i++) {
-            newList[i] = list[i];
+        for (int i = 0; i < end; i++)
+        {	newList[i] = list[i];
         }
         list = newList;
     }
 
-    public boolean swap(int index1, int index2) {
-        if (index1 < 0 || index1 > list.length
-                || index2 < 0 || index2 > list.length) {
-            return false;
-        }
-        char temp = list[index1];
-        list[index1] = list[index2];
-        list[index2] = temp;
-        return true;
-    }
-
-
-	public static void main (String[] args)
-	{
-		// output your name on this line //
 
 // XXXXXXXXXXXXXXXXXXXX DO NOT MODIFY THE CODE BELOW THIS LINE XXXXXXXXXXXXXXXXXXXXX
+	public static void main (String[] args)
+	{
 		System.out.println("\nappend('*'):");
 		append('*');	printList();
 		System.out.println("\nappend('+'):");
@@ -204,29 +246,29 @@ public class ListArray
 		System.out.println("List to String: " + listToString() );
 		System.out.println("\nremove('*'):" + remove('*'));
 		printList();
-		System.out.println("\ninsert('D', 1):");
+		System.out.println("\ninsert('D', 1): ");
 		insert('D', 1);	printList();
-		System.out.println("\ninsert('r', 9):");
+		System.out.println("\ninsert('r', 9): ");
 		insert('r', 9);	printList();
-		System.out.println("\ninsert('h', 5):");
+		System.out.println("\ninsert('h', 5): ");
 		insert('h', 5);	printList();
-		System.out.println("\ninsert('~', 6):");
+		System.out.println("\ninsert('~', 6): ");
 		insert('~', 6);	printList();
-		System.out.println("\ninsert('V', 7):");
+		System.out.println("\ninsert('V', 7): ");
 		insert('V', 7);	printList();
-		System.out.println("\nreplace(8, 'a'):" + replace(8, 'a'));
+		System.out.println("\nreplace(8, 'a'): " + replace(8, 'a'));
 		printList();
-		System.out.println("\nreplace(9, 'd'):" + replace(9, 'd'));
+		System.out.println("\nreplace(9, 'd'): " + replace(9, 'd'));
 		printList();
-		System.out.println("\nremove(10):" + remove(10));
+		System.out.println("\nremove(10): " + remove(10));
 		printList();
-		System.out.println("\nremove(0):" + remove(0));
+		System.out.println("\nremove(0): " + remove(0));
 		printList();
 		System.out.println("\ninsert('+', 99):");
 		insert('+', 99);
 		printList();
 		System.out.println("List length = " + list.length);
-		System.out.println("\nremove('+'):" + remove('+'));
+		System.out.println("\nremove('+'): " + remove('+'));
 		printList();
 		System.out.println("\nappend('#'):");
 		append('#');	printList();
