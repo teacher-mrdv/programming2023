@@ -1,9 +1,11 @@
 
-public class StringDemo {
+public class StringDemo
+{
 	
-	public static void main (String[] args) {
+	public static void main (String[] args)
+	{
 		String name = " Marcos";
-		String surname = " Drien ";
+		String surname = " Drien "; // note the space at the end
 		String fullName = name + surname;
 		System.out.println("String name = \" Marcos\";\nString surname = \" Drien \";\nString fullName = name + surname;\n");
 		System.out.println(">>> String concatenation\n");
@@ -35,12 +37,10 @@ public class StringDemo {
 		System.out.println("\"Kehan\".toUpperCase(): " + "Kehan".toLowerCase());
 		System.out.println("char[] slicedString = \"Kehan\".toCharArray(): " );
 		char[] slicedString = "Kehan".toCharArray();
-		for(int i = 0; i < slicedString.length; i++) {
-			System.out.println(i + " " + slicedString[i] );
+		for(int i = 0; i < slicedString.length; i++)
+		{	System.out.println(i + " " + slicedString[i] );
 		}
-		System.out.println(
-		"Character.toLowerCase(slicedString[0]): " + 
-		 Character.toLowerCase(slicedString[0]));
+		System.out.println("Character.toLowerCase(slicedString[0]): " + Character.toLowerCase(slicedString[0]));
 	}
 }
 
