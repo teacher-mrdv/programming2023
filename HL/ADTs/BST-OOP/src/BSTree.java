@@ -6,11 +6,12 @@ public class BSTree {
     public BSTree(int data) {
         BNode newNode = new BNode(data);
         root = newNode;
-        System.out.println("--> Inserted " + data + " as the root");
+        System.out.println("--> Inserted " + newNode.getData() + " as the root");
     }
 
     public BSTree(BNode newNode) {
         root = newNode;
+        System.out.println("--> Inserted " + newNode.getData() + " as the root");
     }
 
     public boolean isEmpty() {
@@ -23,7 +24,7 @@ public class BSTree {
             addNode(root, newBNode);
         } else {
             root = newBNode;
-            System.out.println("--> Inserted " + data + " as the root");
+            System.out.println("--> Inserted " + newBNode.getData() + " as the root");
         }
     }
 
